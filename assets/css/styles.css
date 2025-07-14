@@ -15,7 +15,7 @@ body {
   line-height: inherit;
   color: inherit;
   background-color: #bfbfbf;
-  cursor: url('/assets/images/cursor.png'), auto;
+  cursor: url('assets/images/cursor.png'), auto;
 }
 
 /* Headers use default styling */
@@ -491,7 +491,7 @@ a:hover,
 .waitlist-btn:hover,
 input[type="submit"]:hover,
 input[type='button']:hover {
-  cursor: url('/assets/images/cursor-hover.png'), pointer !important;
+  cursor: url('assets/images/cursor-hover.png'), pointer !important;
 } 
 
 .why-section {
@@ -566,4 +566,9 @@ input[type='button']:hover {
   height: auto;
   z-index: 1000;
   pointer-events: none;
+} 
+
+.timeline-events {
+  text-align: center;
+  margin-top: 10px;
 } 
