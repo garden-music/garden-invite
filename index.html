@@ -86,7 +86,7 @@
       <form action="https://api.web3forms.com/submit" method="POST" id="waitlist-form">
         <input type="hidden" name="access_key" value="df5a3440-7c0f-4431-96db-511a71966c99">
         <input type="hidden" name="from_name" value="Garden Waitlist">
-        <input type="hidden" name="redirect" value="/thank-you/index.html">
+        <input type="hidden" name="redirect" value="/garden-invite/thank-you/index.html">
         <input type="text" name="botcheck" style="display:none">
         
         <input type="text" name="name" placeholder="Your Name" required>
@@ -176,5 +176,24 @@
     });
   });
   </script>
+<!--
+  <input type="url" id="spotify-url" name="spotify-url" placeholder="Song URL" required>
+  <p class="dummy-text">e.g. https://open.spotify.com/track/...</p>
+  <p class="disclaimer">We may suggest a different song from your catalogue that better fits our playlist network.</p>
+  <div class="platform-group">
+    <label for="platforms-custom">Where do you want your advertising budget to allocate towards?</label>
+    <div class="custom-dropdown" id="platforms-custom" tabindex="0">
+      <span class="selected placeholder">Select a platform</span>
+      <ul class="dropdown-options">
+        <li data-value="Tidal">Tidal</li>
+        <li data-value="Spotify">Spotify</li>
+        <li data-value="YouTube">YouTube</li>
+        <li data-value="Apple Music">Apple Music</li>
+      </ul>
+      <input type="hidden" name="platforms[]" required>
+    </div>
+  </div>
+  <textarea name="message" placeholder="Your Message" required></textarea>
+-->
 </body>
 </html>
