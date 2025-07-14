@@ -3,23 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thank You for Submitting</title>
+  <title>Thank You!</title>
   <link rel="stylesheet" href="../assets/css/styles.css">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      margin-top: -40px;
+      padding: 24px;
+      box-sizing: border-box;
+    }
+    .hero, .referral-section {
+      text-align: center;
+      max-width: 95vw;
+    }
+    .hero h1 {
+      font-size: 2.2em;
+      margin-bottom: 24px;
+    }
+    .referral-section h2 {
+      font-size: 1.3em;
+      margin-bottom: 16px;
+    }
+    .referral-section p {
+      font-size: 1em;
+      margin-bottom: 10px;
+      word-break: break-word;
+    }
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+        margin-top: -20px;
+      }
+      .hero h1 {
+        font-size: 1.3em;
+      }
+      .referral-section h2 {
+        font-size: 1.05em;
+      }
+      .referral-section p {
+        font-size: 0.98em;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="hero">
-    <h1>You're In! Here's What Happens Next</h1>
-  </div>
-  <div class="next-steps">
-    <h2>Immediate Next Steps</h2>
-    <p><b>Within 48 hours:</b> We'll review your music and email you about playlist fit</p>
-    <p><b>Mid-August:</b> If selected, we'll send onboarding details and payment setup</p>
-    <p><b>First week of September:</b> Your music goes live in our playlist network</p>
+    <h1>Thank you!</h1>
   </div>
   <div class="referral-section">
     <h2>Know Other Artists Who'd Love This?</h2>
-    <p>We're limiting our first cohort to 100 artists. Help us find the right ones.</p>
-    <p>Just send them this link: <b>[your-domain.com]</b></p>
+    <p>We're limiting our first cohort to 20 artists. Help us find the right ones.</p>
+    <p>Send them this link: <b><a href="https://garden-music.github.io/garden-invite/" target="_blank" rel="noopener">https://garden-music.github.io/garden-invite/</a></b></p>
   </div>
 </body>
 </html> 
