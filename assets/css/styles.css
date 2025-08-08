@@ -675,6 +675,9 @@ section#waitlist-section h2 {
   height: 50px;
   z-index: 9999;
   cursor: pointer;
+  -webkit-animation: dvd-bounce 60s linear infinite;
+  -moz-animation: dvd-bounce 60s linear infinite;
+  -o-animation: dvd-bounce 60s linear infinite;
   animation: dvd-bounce 60s linear infinite;
 }
 
@@ -686,32 +689,26 @@ section#waitlist-section h2 {
 }
 
 /* DVD Screensaver bounce animation - moves diagonally and bounces off screen edges only */
+@-webkit-keyframes dvd-bounce {
+  0% { -webkit-transform: translate(0px, 0px); transform: translate(0px, 0px); }
+  12.5% { -webkit-transform: translate(calc(50vw - 25px), calc(25vh - 25px)); transform: translate(calc(50vw - 25px), calc(25vh - 25px)); }
+  25% { -webkit-transform: translate(calc(100vw - 50px), calc(50vh - 25px)); transform: translate(calc(100vw - 50px), calc(50vh - 25px)); }
+  37.5% { -webkit-transform: translate(calc(75vw - 25px), calc(75vh - 25px)); transform: translate(calc(75vw - 25px), calc(75vh - 25px)); }
+  50% { -webkit-transform: translate(calc(50vw - 25px), calc(100vh - 50px)); transform: translate(calc(50vw - 25px), calc(100vh - 50px)); }
+  62.5% { -webkit-transform: translate(calc(25vw - 25px), calc(75vh - 25px)); transform: translate(calc(25vw - 25px), calc(75vh - 25px)); }
+  75% { -webkit-transform: translate(0px, calc(50vh - 25px)); transform: translate(0px, calc(50vh - 25px)); }
+  87.5% { -webkit-transform: translate(calc(25vw - 25px), calc(25vh - 25px)); transform: translate(calc(25vw - 25px), calc(25vh - 25px)); }
+  100% { -webkit-transform: translate(0px, 0px); transform: translate(0px, 0px); }
+}
+
 @keyframes dvd-bounce {
-  0% {
-    transform: translate(0px, 0px);
-  }
-  12.5% {
-    transform: translate(calc(50vw - 25px), calc(25vh - 25px));
-  }
-  25% {
-    transform: translate(calc(100vw - 50px), calc(50vh - 25px));
-  }
-  37.5% {
-    transform: translate(calc(75vw - 25px), calc(75vh - 25px));
-  }
-  50% {
-    transform: translate(calc(50vw - 25px), calc(100vh - 50px));
-  }
-  62.5% {
-    transform: translate(calc(25vw - 25px), calc(75vh - 25px));
-  }
-  75% {
-    transform: translate(0px, calc(50vh - 25px));
-  }
-  87.5% {
-    transform: translate(calc(25vw - 25px), calc(25vh - 25px));
-  }
-  100% {
-    transform: translate(0px, 0px);
-  }
+  0% { transform: translate(0px, 0px); }
+  12.5% { transform: translate(calc(50vw - 25px), calc(25vh - 25px)); }
+  25% { transform: translate(calc(100vw - 50px), calc(50vh - 25px)); }
+  37.5% { transform: translate(calc(75vw - 25px), calc(75vh - 25px)); }
+  50% { transform: translate(calc(50vw - 25px), calc(100vh - 50px)); }
+  62.5% { transform: translate(calc(25vw - 25px), calc(75vh - 25px)); }
+  75% { transform: translate(0px, calc(50vh - 25px)); }
+  87.5% { transform: translate(calc(25vw - 25px), calc(25vh - 25px)); }
+  100% { transform: translate(0px, 0px); }
 } 
