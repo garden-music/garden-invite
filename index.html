@@ -8,6 +8,11 @@
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
+  <!-- Bouncing DVD screensaver style GIF -->
+  <div class="bouncing-gif">
+    <img src="assets/images/header-art.gif" alt="Bouncing Garden Art" class="dvd-bounce">
+  </div>
+  
   <div class="hero">
     <img src="assets/images/header-art-purple.gif" alt="Garden pixel art" class="hero-gif">
     <img src="assets/images/garden-logo.webp" alt="Garden Logo" class="hero-logo">
@@ -109,6 +114,24 @@
   </footer>
   
   <script src="assets/js/cookie-compliance.js"></script>
+  <script>
+  // Make bouncing GIF disappear when clicked
+  document.addEventListener('DOMContentLoaded', function() {
+    var bouncingGif = document.querySelector('.bouncing-gif');
+    if (bouncingGif) {
+      bouncingGif.addEventListener('click', function() {
+        // Add a smooth fade-out effect
+        bouncingGif.style.transition = 'opacity 0.3s ease-out';
+        bouncingGif.style.opacity = '0';
+        
+        // Remove from DOM after fade completes
+        setTimeout(function() {
+          bouncingGif.remove();
+        }, 300);
+      });
+    }
+  });
+  </script>
   <script>
   // Custom dropdown logic
   document.addEventListener('DOMContentLoaded', function() {

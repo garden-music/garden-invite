@@ -26,6 +26,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Redaction20Regular';
+  src: url('../fonts/Redaction_20-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Reset some basic elements */
 * {
   margin: 0;
@@ -193,6 +201,7 @@ footer {
   margin-top: 20px;
   text-align: center;
   padding-bottom: 40px;
+  font-family: 'Redaction20Regular', serif;
 }
 
 /* Cookie Consent Banner */
@@ -655,4 +664,54 @@ input[type='button']:hover {
 
 section#waitlist-section h2 {
   margin-top: 48px;
+}
+
+/* DVD Screensaver Bouncing GIF Animation */
+.bouncing-gif {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  z-index: 9999;
+  cursor: pointer;
+  animation: dvd-bounce 60s linear infinite;
+}
+
+.dvd-bounce {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  display: block;
+}
+
+/* DVD Screensaver bounce animation - moves diagonally and bounces off screen edges only */
+@keyframes dvd-bounce {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  12.5% {
+    transform: translate(calc(50vw - 25px), calc(25vh - 25px));
+  }
+  25% {
+    transform: translate(calc(100vw - 50px), calc(50vh - 25px));
+  }
+  37.5% {
+    transform: translate(calc(75vw - 25px), calc(75vh - 25px));
+  }
+  50% {
+    transform: translate(calc(50vw - 25px), calc(100vh - 50px));
+  }
+  62.5% {
+    transform: translate(calc(25vw - 25px), calc(75vh - 25px));
+  }
+  75% {
+    transform: translate(0px, calc(50vh - 25px));
+  }
+  87.5% {
+    transform: translate(calc(25vw - 25px), calc(25vh - 25px));
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
 } 
