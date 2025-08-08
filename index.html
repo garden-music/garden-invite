@@ -115,21 +115,63 @@
   
   <script src="assets/js/cookie-compliance.js"></script>
   <script>
-  // Make bouncing GIF disappear when clicked
+  // DVD Bouncing Animation with JavaScript
   document.addEventListener('DOMContentLoaded', function() {
     var bouncingGif = document.querySelector('.bouncing-gif');
-    if (bouncingGif) {
-      bouncingGif.addEventListener('click', function() {
-        // Add a smooth fade-out effect
-        bouncingGif.style.transition = 'opacity 0.3s ease-out';
-        bouncingGif.style.opacity = '0';
-        
-        // Remove from DOM after fade completes
-        setTimeout(function() {
-          bouncingGif.remove();
-        }, 300);
-      });
+    if (!bouncingGif) return;
+    
+    // Animation variables
+    var x = Math.random() * (window.innerWidth - 50);
+    var y = Math.random() * (window.innerHeight - 50);
+    var dx = 2; // horizontal speed
+    var dy = 2; // vertical speed
+    var animationId;
+    
+    // Set initial position
+    bouncingGif.style.left = x + 'px';
+    bouncingGif.style.top = y + 'px';
+    
+    function animate() {
+      // Update position
+      x += dx;
+      y += dy;
+      
+      // Bounce off edges
+      if (x <= 0 || x >= window.innerWidth - 50) {
+        dx = -dx;
+        x = Math.max(0, Math.min(window.innerWidth - 50, x));
+      }
+      if (y <= 0 || y >= window.innerHeight - 50) {
+        dy = -dy;
+        y = Math.max(0, Math.min(window.innerHeight - 50, y));
+      }
+      
+      // Apply position
+      bouncingGif.style.left = x + 'px';
+      bouncingGif.style.top = y + 'px';
+      
+      // Continue animation
+      animationId = requestAnimationFrame(animate);
     }
+    
+    // Start animation
+    animate();
+    
+    // Click to disappear
+    bouncingGif.addEventListener('click', function() {
+      cancelAnimationFrame(animationId);
+      bouncingGif.style.transition = 'opacity 0.3s ease-out';
+      bouncingGif.style.opacity = '0';
+      setTimeout(function() {
+        bouncingGif.remove();
+      }, 300);
+    });
+    
+    // Handle window resize
+    window.addEventListener('resize', function() {
+      x = Math.min(x, window.innerWidth - 50);
+      y = Math.min(y, window.innerHeight - 50);
+    });
   });
   </script>
   <script>
