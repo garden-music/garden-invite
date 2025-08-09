@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Join our waitlist">
   <title>Waitlist</title>
+  <link rel="preload" as="image" href="assets/images/noise-background-1.webp">
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
@@ -114,113 +115,60 @@
   </footer>
   
   <script src="assets/js/cookie-compliance.js"></script>
+  
+  <!-- Bouncing DVD GIF Animation (robust JS-only) -->
   <script>
-  // DVD Bouncing Animation with JavaScript - Production Ready
-  function initBouncingGif() {
-    var bouncingGif = document.querySelector('.bouncing-gif');
-    if (!bouncingGif) return;
-    
-    // Wait for everything to be fully loaded
-    function startAnimation() {
-      // Get actual viewport dimensions - fallback for production
-      var viewportWidth = window.innerWidth || document.documentElement.clientWidth || 1200;
-      var viewportHeight = window.innerHeight || document.documentElement.clientHeight || 800;
-      
-      console.log('Starting animation with viewport:', viewportWidth, 'x', viewportHeight);
-      
-      // Animation variables
-      var x = Math.random() * Math.max(100, viewportWidth - 50);
-      var y = Math.random() * Math.max(100, viewportHeight - 50);
-      var dx = 2; // horizontal speed
-      var dy = 2; // vertical speed
-      var animationId;
-      
-      // Ensure starting position is valid
-      x = Math.min(x, viewportWidth - 50);
-      y = Math.min(y, viewportHeight - 50);
-      
-      console.log('Starting position:', x, y);
-      
-      // Set initial position
-      bouncingGif.style.left = x + 'px';
-      bouncingGif.style.top = y + 'px';
-      bouncingGif.style.position = 'fixed';
-      bouncingGif.style.zIndex = '9999';
-      
-      function animate() {
-        // Get current viewport dimensions (in case of resize)
-        var currentWidth = window.innerWidth || document.documentElement.clientWidth || viewportWidth;
-        var currentHeight = window.innerHeight || document.documentElement.clientHeight || viewportHeight;
-        
-        // Update position
-        x += dx;
-        y += dy;
-        
-        // Bounce off edges
-        if (x <= 0 || x >= currentWidth - 50) {
-          dx = -dx;
-          x = Math.max(0, Math.min(currentWidth - 50, x));
-        }
-        if (y <= 0 || y >= currentHeight - 50) {
-          dy = -dy;
-          y = Math.max(0, Math.min(currentHeight - 50, y));
-        }
-        
-        // Apply position
-        bouncingGif.style.left = x + 'px';
-        bouncingGif.style.top = y + 'px';
-        
-        // Continue animation
-        animationId = requestAnimationFrame(animate);
-      }
-      
-      // Start animation
-      animate();
-      
-      // Click to disappear
-      bouncingGif.addEventListener('click', function() {
-        console.log('GIF clicked - removing');
-        cancelAnimationFrame(animationId);
-        bouncingGif.style.transition = 'opacity 0.3s ease-out';
-        bouncingGif.style.opacity = '0';
-        setTimeout(function() {
-          if (bouncingGif.parentNode) {
-            bouncingGif.remove();
-          }
-        }, 300);
-      });
-      
-      // Handle window resize
-      window.addEventListener('resize', function() {
-        var newWidth = window.innerWidth || document.documentElement.clientWidth;
-        var newHeight = window.innerHeight || document.documentElement.clientHeight;
-        x = Math.min(x, newWidth - 50);
-        y = Math.min(y, newHeight - 50);
-      });
+(function() {
+  var el = document.querySelector('.bouncing-gif');
+  if (!el) return;
+
+  function startBouncing() {
+    var w = 50, h = 50;
+    var x = Math.random() * (window.innerWidth - w);
+    var y = Math.random() * (window.innerHeight - h);
+    var dx = 2 + Math.random() * 2;
+    var dy = 2 + Math.random() * 2;
+
+    function move() {
+      x += dx;
+      y += dy;
+      if (x <= 0 || x >= window.innerWidth - w) dx = -dx;
+      if (y <= 0 || y >= window.innerHeight - h) dy = -dy;
+      x = Math.max(0, Math.min(window.innerWidth - w, x));
+      y = Math.max(0, Math.min(window.innerHeight - h, y));
+      el.style.left = x + 'px';
+      el.style.top = y + 'px';
+      requestAnimationFrame(move);
     }
-    
-    // Multiple fallbacks for different loading states
-    if (document.readyState === 'complete') {
-      setTimeout(startAnimation, 100);
-    } else {
-      window.addEventListener('load', function() {
-        setTimeout(startAnimation, 100);
-      });
-    }
+
+    el.style.left = x + 'px';
+    el.style.top = y + 'px';
+    el.style.position = 'fixed';
+    el.style.zIndex = 9999;
+
+    move();
+
+    el.addEventListener('click', function() {
+      el.style.transition = 'opacity 0.3s';
+      el.style.opacity = 0;
+      setTimeout(function() { el.remove(); }, 300);
+    });
+
+    window.addEventListener('resize', function() {
+      x = Math.min(x, window.innerWidth - w);
+      y = Math.min(y, window.innerHeight - h);
+    });
   }
-  
-  // Try multiple initialization methods
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initBouncingGif);
+
+  if (document.readyState === 'complete') {
+    setTimeout(startBouncing, 100);
   } else {
-    initBouncingGif();
+    window.addEventListener('load', function() {
+      setTimeout(startBouncing, 100);
+    });
   }
-  
-  // Additional fallback
-  window.addEventListener('load', function() {
-    setTimeout(initBouncingGif, 200);
-  });
-  </script>
+})();
+</script>
   <script>
   // Custom dropdown logic
   document.addEventListener('DOMContentLoaded', function() {
