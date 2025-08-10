@@ -34,11 +34,158 @@
   font-display: swap;
 }
 
+/* Scroll-triggered animations with low frame rate aesthetic */
+@keyframes glitchReveal {
+  0% { 
+    opacity: 0; 
+    transform: translateY(30px) skewX(-2deg);
+    filter: hue-rotate(0deg) saturate(0.8);
+  }
+  20% { 
+    opacity: 0.3; 
+    transform: translateY(25px) skewX(1deg);
+    filter: hue-rotate(90deg) saturate(1.2);
+  }
+  40% { 
+    opacity: 0.7; 
+    transform: translateY(15px) skewX(-1deg);
+    filter: hue-rotate(180deg) saturate(0.9);
+  }
+  60% { 
+    opacity: 0.9; 
+    transform: translateY(8px) skewX(0.5deg);
+    filter: hue-rotate(270deg) saturate(1.1);
+  }
+  75% { 
+    opacity: 0.95; 
+    transform: translateY(3px) skewX(-0.2deg);
+    filter: hue-rotate(135deg) saturate(1.05);
+  }
+  90% { 
+    opacity: 0.98; 
+    transform: translateY(1px) skewX(-0.1deg);
+    filter: hue-rotate(45deg) saturate(1.02);
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0) skewX(0deg);
+    filter: hue-rotate(0deg) saturate(1);
+  }
+}
+
+@keyframes staggeredSlideIn {
+  0% { 
+    opacity: 0; 
+    transform: translateX(-50px) scale(0.8);
+  }
+  25% { 
+    opacity: 0.2; 
+    transform: translateX(-30px) scale(0.85);
+  }
+  50% { 
+    opacity: 0.6; 
+    transform: translateX(-15px) scale(0.9);
+  }
+  75% { 
+    opacity: 0.8; 
+    transform: translateX(-5px) scale(0.95);
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes choppyFadeIn {
+  0%, 30% { opacity: 0; transform: scale(0.9) rotate(-1deg); }
+  40%, 60% { opacity: 0.4; transform: scale(0.95) rotate(0.5deg); }
+  70%, 90% { opacity: 0.7; transform: scale(0.98) rotate(-0.3deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
+@keyframes glitchPulse {
+  0%, 100% { 
+    transform: scale(1) rotate(0deg);
+    filter: hue-rotate(0deg) brightness(1);
+  }
+  25% { 
+    transform: scale(1.02) rotate(0.5deg);
+    filter: hue-rotate(90deg) brightness(1.1);
+  }
+  50% { 
+    transform: scale(0.98) rotate(-0.3deg);
+    filter: hue-rotate(180deg) brightness(0.9);
+  }
+  75% { 
+    transform: scale(1.01) rotate(0.2deg);
+    filter: hue-rotate(270deg) brightness(1.05);
+  }
+}
+
+/* Animation classes */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: none;
+}
+
+.animate-on-scroll.animated {
+  animation: glitchReveal 2.5s steps(8) forwards;
+}
+
+.staggered-animate {
+  opacity: 0;
+  transform: translateX(-50px) scale(0.8);
+  transition: none;
+}
+
+.staggered-animate.animated {
+  animation: staggeredSlideIn 3s steps(6) forwards;
+}
+
+.choppy-fade {
+  opacity: 0;
+  transform: scale(0.9) rotate(-1deg);
+  transition: none;
+}
+
+.choppy-fade.animated {
+  animation: choppyFadeIn 1.2s steps(40) forwards;
+}
+
+.glitch-pulse {
+  animation: glitchPulse 4s steps(6) infinite;
+}
+
+/* Staggered delays for multiple elements */
+.staggered-animate:nth-child(1) { animation-delay: 0s; }
+.staggered-animate:nth-child(2) { animation-delay: 0.3s; }
+.staggered-animate:nth-child(3) { animation-delay: 0.6s; }
+.staggered-animate:nth-child(4) { animation-delay: 0.9s; }
+.staggered-animate:nth-child(5) { animation-delay: 1.2s; }
+
+/* Garden can rotation animation */
+@keyframes gardenCanRotate {
+  0% { transform: rotate(0deg); }
+  20% { transform: rotate(-30deg); }
+  30% { transform: rotate(-30deg); }
+  80% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.garden-can-rotate {
+  animation: gardenCanRotate 6s ease-in-out infinite;
+}
+
 /* Reset some basic elements */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html, body {
+  /* Custom cursor removed */
 }
 
 /* Body uses default font and size */
@@ -452,7 +599,7 @@ html {
 
 .hero-gif {
   display: block;
-  margin: 40px auto 24px auto;
+  margin: 35px auto 24px auto;
   max-width: 220px;
   height: auto;
 }
@@ -575,13 +722,7 @@ html {
   }
 } 
 
-button:hover,
-a:hover,
-.waitlist-btn:hover,
-input[type="submit"]:hover,
-input[type='button']:hover {
-  cursor: url('assets/images/cursor-hover.png'), pointer !important;
-} 
+ 
 
 .why-section {
   margin: 40px auto 32px auto;
@@ -664,6 +805,30 @@ input[type='button']:hover {
 
 section#waitlist-section h2 {
   margin-top: 48px;
+  font-family: 'RedactionBold', serif;
+  font-size: 24px;
+  color: #000;
+}
+
+#waitlist-form {
+  font-family: 'RedactionRegular', serif;
+}
+
+#waitlist-form input[type="text"],
+#waitlist-form input[type="email"] {
+  font-family: 'RedactionRegular', serif;
+  font-size: 14px;
+}
+
+#waitlist-form .dummy-text {
+  font-family: 'RedactionRegular', serif;
+  font-style: italic;
+}
+
+#waitlist-form button[type="submit"] {
+  font-family: 'RedactionRegular', serif;
+  font-size: 16px;
+  letter-spacing: 0.5px;
 }
 
 /* DVD Screensaver Bouncing GIF Animation */

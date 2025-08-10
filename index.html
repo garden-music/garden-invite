@@ -7,8 +7,61 @@
   <title>Waitlist</title>
   <link rel="preload" as="image" href="assets/images/noise-background-1.webp">
   <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    @keyframes gnomeFlash {
+      0%, 25%, 75%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.2; transform: scale(0.7); }
+    }
+    
+    .gnome-flash:nth-child(1) { animation: gnomeFlash 4.5s steps(3) infinite; }
+    .gnome-flash:nth-child(2) { animation: gnomeFlash 4.5s steps(3) infinite 0.9s; }
+    .gnome-flash:nth-child(3) { animation: gnomeFlash 4.5s steps(3) infinite 1.8s; }
+    .gnome-flash:nth-child(4) { animation: gnomeFlash 4.5s steps(3) infinite 2.7s; }
+    .gnome-flash:nth-child(5) { animation: gnomeFlash 4.5s steps(3) infinite 3.6s; }
+    
+    /* Shovel animation - moves left to right */
+    @keyframes shovelMove {
+      0% { transform: translateX(-500%); }
+      49% { transform: translateX(500%); }
+      50% { transform: translateX(500%) scaleX(-1); }
+      100% { transform: translateX(-500%) scaleX(-1); }
+    }
+    
+    .gnome-flash.shovel { 
+      animation: shovelMove 100s linear infinite;
+      position: relative;
+    }
+    
+    /* Mobile breakpoint - smaller movement range */
+    @media (max-width: 768px) {
+      @keyframes shovelMoveMobile {
+        0% { transform: translateX(-400%); }
+        49% { transform: translateX(400%); }
+        50% { transform: translateX(400%) scaleX(-1); }
+        100% { transform: translateX(-400%) scaleX(-1); }
+      }
+      
+      .gnome-flash.shovel { 
+        animation: shovelMoveMobile 100s linear infinite;
+      }
+    }
+
+    /* Purple flower effect */
+    .purple-flower {
+      filter: hue-rotate(240deg) saturate(1.5) brightness(0.9);
+    }
+    
+    /* Staggered flower animation delays */
+    .flower-staggered:nth-child(1) { animation-delay: 0s; }
+    .flower-staggered:nth-child(2) { animation-delay: -0.2s; }
+    .flower-staggered:nth-child(3) { animation-delay: -0.4s; }
+    .flower-staggered:nth-child(4) { animation-delay: -0.6s; }
+    .flower-staggered:nth-child(5) { animation-delay: -0.8s; }
+    
+    /* Mobile breakpoint - smaller movement range */
+  </style>
 </head>
-<body>
+<body class="test-cursor">
   <!-- Bouncing DVD screensaver style GIF -->
   <div class="bouncing-gif">
     <img src="assets/images/header-art.gif" alt="Bouncing Garden Art" class="dvd-bounce">
@@ -21,27 +74,41 @@
     <a href="#waitlist-section" class="waitlist-btn">Join The Waitlist</a>
   </div>
   <div class="intro-block">
-    <div class="qa-section">
+    <div class="qa-section animate-on-scroll">
       <p><b>Ok, what is this?</b><span class="big-break"></span>
       Garden is basically a co-op we've built to help collectively grow streaming and listenership at the same time as other artists in your niche. We use daily ads and pool our money to target real listeners. The more people that join, the stronger the results are for everyone.</p>
     </div>
-    <img src="assets/images/garden-can.gif" alt="Garden can animation" class="qa-gif">
+    <div style="display: flex; justify-content: center; gap: 10px; margin: 5px auto;">
+      <img src="assets/images/purp-gnome.webp" alt="Purple gnome" class="qa-gif gnome-flash" style="width: 12%; height: auto;">
+      <img src="assets/images/purp-gnome.webp" alt="Purple gnome" class="qa-gif gnome-flash" style="width: 12%; height: auto;">
+      <img src="assets/images/purp-gnome.webp" alt="Purple gnome" class="qa-gif gnome-flash" style="width: 12%; height: auto;">
+      <img src="assets/images/purp-gnome.webp" alt="Purple gnome" class="qa-gif gnome-flash" style="width: 12%; height: auto;">
+      <img src="assets/images/purp-gnome.webp" alt="Purple gnome" class="qa-gif gnome-flash" style="width: 12%; height: auto;">
+    </div>
     <div class="qa-section">
       <p><b>Who is this for?</b><span class="big-break"></span>
       You probably, if you have this link lol.<span class="big-break"></span>
       But mainly this is for folks that already have great music, but not much knowledge or energy for direct response marketing. If you want to grow listenership & associate yourself with other great projects, this is an easy and great way to do so.</p>
     </div>
-    <img src="assets/images/garden-can.gif" alt="Garden can animation" class="qa-gif">
-    <h3 class="hot-takes-header">HOT TAKES</h3>
-    <div class="qa-section">
+    <img src="assets/images/garden can.webp" alt="Garden can" class="qa-gif garden-can-rotate" style="height: 80px; width: auto;">
+    <h3 class="hot-takes-header">PEOPLE LOVE OUR PLAYLISTS (P.L.O.P.)</h3>
+    <img src="assets/images/IG Comments - white copy.webp" alt="IG Comments" style="display:block; margin: 24px auto; max-width: 80%; height: auto; opacity: 0.87; border: 1px solid black;">
+    <div class="qa-section" style="margin-top: 35px;">
       <p><b>How does it work?</b><span class="big-break"></span>
       Ads pretty much!<span class="big-break"></span>
       We've built up a robust playlist audience that is growing every day. With over 10+ years of marketing experience, we constantly build and test new ads (mostly on meta), which direct people to follow and stream different playlists we've curated across Spotify / Apple Music / Tidal / Youtube Music. However, instead of creating campaigns for each individual artist, we pool the daily adspend budget, creating a multiplier effect for everyone involved.</p>
     </div>
-    <img src="assets/images/garden-can.gif" alt="Garden can animation" class="qa-gif">
+    <img src="assets/images/snail.webp" alt="Snail" class="qa-gif gnome-flash shovel" style="height: 47px; width: auto;">
     <div class="qa-section">
       <p><b>How much does it cost?</b><span class="big-break"></span>
       $5/day per artist. Billed monthly. Stay as long as you'd like, we just ask that you start with at least 60 days before jumping ship.</p>
+    </div>
+    <div style="display: flex; justify-content: center; gap: 10px; margin: 5px auto;">
+      <video src="assets/images/flower.webm" alt="Flower animation" class="qa-gif flower-staggered" style="height: 80px; width: auto;" autoplay loop muted playsinline></video>
+      <video src="assets/images/flower.webm" alt="Flower animation" class="qa-gif flower-staggered" style="height: 80px; width: auto;" autoplay loop muted playsinline></video>
+      <video src="assets/images/flower.webm" alt="Flower animation" class="qa-gif flower-staggered" style="height: 80px; width: auto;" autoplay loop muted playsinline></video>
+      <video src="assets/images/flower.webm" alt="Flower animation" class="qa-gif flower-staggered" style="height: 80px; width: auto;" autoplay loop muted playsinline></video>
+      <video src="assets/images/flower.webm" alt="Flower animation" class="qa-gif flower-staggered" style="height: 80px; width: auto;" autoplay loop muted playsinline></video>
     </div>
     <div class="qa-section">
       <p><b>Are results guaranteed?</b><span class="big-break"></span>
@@ -49,24 +116,12 @@
       We aren't selling streams. Anything that guarantees a number of streams is basically a scam. This is a marketing collective. HOWEVER, you will see more monthly listeners, while sending better data signals to these streaming platforms. This can up your chances for algorithmic placements, as well as up your vanity metrics for those that care, all while associating yourself more closely with other artists in the collective on the world wide web. We'll even send you performance reports :)</p>
     </div>
     <hr>
-    <div class="social-proof-section">
-      <div class="social-proof-title">People Love Our Playlists (P.L.O.P.)</div>
-      <div class="social-proof">
-        <img src="assets/images/comment1.png" alt="Listener comment 1">
-        <img src="assets/images/comment2.png" alt="Listener comment 2">
-        <img src="assets/images/comment3.png" alt="Listener comment 3">
-        <img src="assets/images/comment4.png" alt="Listener comment 4">
-        <img src="assets/images/comment5.png" alt="Listener comment 5">
-        <img src="assets/images/comment6.png" alt="Listener comment 6">
-        <img src="assets/images/comment7.png" alt="Listener comment 7">
-      </div>
-    </div>
-    <hr>
+    <!-- P.L.O.P. section removed -->
   </div>
 
   <main>
-    <section id="waitlist-section">
-      <h2>Join The Waitlist</h2>
+    <section id="waitlist-section" class="choppy-fade">
+      <h2>JOIN THE WAITLIST</h2>
       <form action="https://api.web3forms.com/submit" method="POST" id="waitlist-form">
         <input type="hidden" name="access_key" value="df5a3440-7c0f-4431-96db-511a71966c99">
         <input type="hidden" name="from_name" value="Garden Waitlist">
@@ -74,13 +129,13 @@
         <input type="text" name="botcheck" style="display:none">
         
         <input type="text" name="name" placeholder="Your Name" required>
-        <p class="dummy-text">e.g. John Smith</p>
+        <p class="dummy-text">e.g. Kurt Cobain</p>
         
         <input type="text" name="artist name" placeholder="Your Band/Artist Name" required>
-        <p class="dummy-text">e.g. Hiding Places</p>
+        <p class="dummy-text">e.g. Grant Lee Buffalo</p>
         
         <input type="email" name="email" placeholder="Email" required>
-        <p class="dummy-text">e.g. john@example.com</p>
+        <p class="dummy-text">e.g. elliot@smith.com</p>
         
         <!-- <input type="url" id="spotify-url" name="spotify-url" placeholder="Song URL" required>
         <p class="dummy-text">e.g. https://open.spotify.com/track/...</p>
@@ -111,10 +166,65 @@
   </main>
   
   <footer>
-    <p>&copy; 2025. All rights reserved. Garden.</p>
+    <p>&copy; 2025. All rights reserved. Garden. | <a href="/privacy-policy" style="text-decoration: underline;">Privacy Policy</a></p>
   </footer>
   
   <script src="assets/js/cookie-compliance.js"></script>
+  
+  <!-- Scroll Animation Trigger Script -->
+  <script>
+    // Intersection Observer for scroll-triggered animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Add staggered delays for multiple elements
+          if (entry.target.classList.contains('staggered-animate')) {
+            const delay = Array.from(entry.target.parentNode.children).indexOf(entry.target) * 200;
+            setTimeout(() => {
+              entry.target.classList.add('animated');
+            }, delay);
+          } else {
+            entry.target.classList.add('animated');
+          }
+        }
+      });
+    }, observerOptions);
+
+    // Observe all animated elements
+    document.addEventListener('DOMContentLoaded', () => {
+      const animatedElements = document.querySelectorAll('.animate-on-scroll, .staggered-animate, .choppy-fade');
+      animatedElements.forEach(el => observer.observe(el));
+    });
+
+    // Add some glitch effects on scroll
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    function updateGlitchEffects() {
+      const scrolledElements = document.querySelectorAll('.glitch-pulse');
+      scrolledElements.forEach((el, index) => {
+        const scrollProgress = (window.scrollY - el.offsetTop + window.innerHeight) / (window.innerHeight * 2);
+        if (scrollProgress > 0 && scrollProgress < 1) {
+          el.style.animationDelay = `${scrollProgress * 2}s`;
+        }
+      });
+      ticking = false;
+    }
+
+    function requestTick() {
+      if (!ticking) {
+        requestAnimationFrame(updateGlitchEffects);
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', requestTick);
+  </script>
   
   <!-- Bouncing DVD GIF Animation (robust JS-only) -->
   <script>
@@ -126,8 +236,8 @@
     var w = 50, h = 50;
     var x = Math.random() * (window.innerWidth - w);
     var y = Math.random() * (window.innerHeight - h);
-    var dx = 2 + Math.random() * 2;
-    var dy = 2 + Math.random() * 2;
+    var dx = 0.5 + Math.random() * 0.5;
+    var dy = 0.5 + Math.random() * 0.5;
 
     function move() {
       x += dx;
@@ -233,5 +343,22 @@
   </div>
   <textarea name="message" placeholder="Your Message" required></textarea>
 -->
+  <script>
+        // Check on page load in case user is already scrolled down
+        document.addEventListener('DOMContentLoaded', checkScrollForDvd);
+        
+        // Staggered flower video timing
+        document.addEventListener('DOMContentLoaded', function() {
+          const flowerVideos = document.querySelectorAll('.flower-staggered');
+          flowerVideos.forEach((video, index) => {
+            // Set different start frames for each video (0, 1, 2, 3, 0)
+            const startFrame = index % 4; // Cycles through frames 0, 1, 2, 3, 0
+            // Assuming 4 frames, each frame is 1/4 of the total duration
+            const startTime = startFrame * 0.25; // 0.25 = 1/4 of the animation
+            video.currentTime = startTime;
+            video.play();
+          });
+        });
+      </script>
 </body>
 </html>
