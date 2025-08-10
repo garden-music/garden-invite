@@ -384,6 +384,11 @@ footer {
    Responsive Design
    ========================================================================== */
 
+/* Hide mobile line break on desktop */
+.mobile-break {
+  display: none;
+}
+
 /* Mobile devices */
 @media (max-width: 500px) {
   #cc-banner {
@@ -395,6 +400,11 @@ footer {
 
   #cc-banner button {
     font-size: 13px;
+  }
+
+  /* Show mobile line break on mobile */
+  .mobile-break {
+    display: inline;
   }
 }
 
