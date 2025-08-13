@@ -848,7 +848,8 @@ section#waitlist-section h2 {
 }
 
 #waitlist-form input[type="text"],
-#waitlist-form input[type="email"] {
+#waitlist-form input[type="email"],
+#waitlist-form input[type="url"] {
   font-family: 'RedactionRegular', serif;
   font-size: 14px;
 }
