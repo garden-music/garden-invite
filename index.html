@@ -77,6 +77,36 @@
     .flower-staggered:nth-child(5) { animation-delay: -0.8s; }
     
     /* Mobile breakpoint - smaller movement range */
+    
+    /* Fade in/out animation for "Sound good?" */
+    @keyframes fadeInOut {
+      0%, 15% { opacity: 1; }
+      25%, 75% { opacity: 0; }
+      85%, 100% { opacity: 1; }
+    }
+    
+    /* Animated underline effect */
+    .animated-underline::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: white;
+      transition: width 0.3s ease;
+      animation: underlinePulse 2s ease-in-out infinite;
+    }
+    
+    @keyframes underlinePulse {
+      0%, 100% { width: 0; }
+      50% { width: 100%; }
+    }
+    
+    .animated-underline:hover::after {
+      width: 100%;
+      animation: none;
+    }
   </style>
 </head>
 <body class="test-cursor" style="background-color: #f5f5f5;">
@@ -86,8 +116,8 @@
   </div>
   
   <div class="hero">
-    <img src="assets/images/garden-logo.webp" alt="Garden Logo" class="hero-logo" style="transform: scale(1.4);">
-    <h2 class="hero-subheader" style="color: white; text-align: center;">A DIY Music<br>Growth Collective</h2>
+    <img src="assets/images/garden-logo.webp" alt="Garden Logo" class="hero-logo" style="transform: scale(1.25); margin-top: 60px;">
+    <h2 class="hero-subheader" style="color: white; text-align: center; font-family: 'Times New Roman', Times, serif; line-height: 1.1; font-size: calc(1.15em + 5px); margin: 20px 0 0px 0; background: none;">A DIY Music<br>Growth Collective</h2>
     <img src="assets/images/header-art-purple.gif" alt="Garden pixel art" class="hero-gif">
     <a href="#waitlist-section" class="waitlist-btn">Apply to Join</a>
   </div>
@@ -109,8 +139,11 @@
       But mainly this is for folks that already have great music, but not much knowledge or energy for direct response marketing. If you want to grow listenership & associate yourself with other great projects, this is an easy and great way to do so.</p>
     </div>
     <img src="assets/images/garden can.webp" alt="Garden can" class="qa-gif garden-can-rotate" style="height: 80px; width: auto;">
-    <h3 class="hot-takes-header">PEOPLE LOVE OUR PLAYLISTS (P.L.O.P.)</h3>
-    <img src="assets/images/IG Comments - white copy.webp" alt="IG Comments" style="display:block; margin: 24px auto; max-width: 80%; height: auto; opacity: 0.87; border: 1px solid black;">
+    <h3 class="hot-takes-header" style="color: white; font-style: italic;">PEOPLE LOVE OUR PLAYLISTS (P.L.O.P.)</h3>
+    <img src="assets/images/IG Comments - white copy.webp" alt="IG Comments" style="display:block; margin: 24px auto; max-width: 100%; height: auto; opacity: 0.87; border: 1px solid black;">
+    <div style="text-align: center; margin: 49px 0;">
+      <a href="#waitlist-section" class="waitlist-btn">Apply to Join</a>
+    </div>
     <div class="qa-section" style="margin-top: 35px;">
       <p><b>How does it work?</b><span class="big-break"></span>
       Ads pretty much!<span class="big-break"></span>
@@ -119,7 +152,10 @@
     <img src="assets/images/snail.webp" alt="Snail" class="qa-gif gnome-flash shovel" style="height: 47px; width: auto;">
     <div class="qa-section">
       <p><b>How much does it cost?</b><span class="big-break"></span>
-      $5/day per artist. Billed monthly. Stay as long as you'd like, we just ask that you start with at least 60 days before jumping ship.</p>
+      $5/day per artist. Billed monthly. Stay as long as you'd like, we just ask that you start with at least 30 days before jumping ship.</p>
+    </div>
+    <div style="text-align: center; margin: 50px 0 40px 0;">
+      <a href="#waitlist-section" class="animated-underline" style="color: white; font-size: 14px; text-decoration: none; position: relative;">Apply to Join</a>
     </div>
     <div style="display: flex; justify-content: center; gap: 10px; margin: 5px auto;">
       <img src="assets/images/flower.gif" alt="Flower" class="qa-gif flower-staggered" style="height: 80px; width: auto;">
@@ -139,7 +175,8 @@
 
   <main>
     <section id="waitlist-section" class="choppy-fade">
-      <h2>APPLY TO JOIN</h2>
+      <p style="color: white; font-size: 12px; text-align: center; margin: -25px 0 45px 0; animation: fadeInOut 6s ease-in-out infinite;">Sound good?</p>
+      <h2 style="color: #4949c9; font-size: calc(24px + 20px); margin-bottom: 20px; margin-top: -20px;">Apply to Join</h2>
       <form action="https://formsubmit.co/8ebc7b38d54f9cbb9cc18dabf22fb908" method="POST" id="waitlist-form">
         <input type="text" name="_honey" style="display:none">
         <input type="hidden" name="_next" value="https://www.garden1176.com/thank-you/">
