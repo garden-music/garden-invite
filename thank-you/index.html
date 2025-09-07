@@ -6,87 +6,85 @@
   <title>Thank You!</title>
   <link rel="stylesheet" href="../assets/css/styles.css">
   <style>
-    @font-face {
-      font-family: 'Redaction';
-      src: url('../assets/fonts/Redaction_35-Regular.woff2') format('woff2');
-      font-weight: normal;
-      font-style: normal;
-    }
-    
-    @font-face {
-      font-family: 'Redaction';
-      src: url('../assets/fonts/Redaction_35-Bold.woff2') format('woff2');
-      font-weight: bold;
-      font-style: normal;
-    }
-    
     body {
-      font-family: 'Redaction', monospace;
+      font-family: Arial, sans-serif;
       background-color: #f5f5f5;
+      background-image: url('../assets/images/noise-background-1.webp');
+      background-attachment: scroll;
+      background-size: 100vw auto;
+      background-position: center;
+      background-repeat: repeat-y;
       margin: 0;
       padding: 0;
       line-height: 1.6;
-      color: black;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      color: #333;
       min-height: 100vh;
+    }
+    
+    html {
+      margin: 0;
+      padding: 0;
     }
     
     .thank-you-container {
       max-width: 600px;
       margin: 0 auto;
       padding: 20px;
-      margin-top: -75px;
     }
     
     .thank-you-header {
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 10px;
       padding: 20px;
     }
     
     .thank-you-header h1 {
-      font-family: 'Redaction', monospace;
-      font-size: 2.5em;
+      font-family: 'RedactionBold', serif;
+      font-size: 5.94em;
       font-weight: bold;
-      color: black;
-      margin: 0;
+      color: white;
+      margin: 0 0 -10px 0;
       text-transform: uppercase;
       letter-spacing: 1px;
     }
     
     .thank-you-content {
-      padding: 25px;
-      border: 1px solid black;
-      margin-bottom: 25px;
+      background-color: #4949c9;
+      color: white;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 0;
+      border: 1px solid #000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
     
     .thank-you-content h2 {
       font-family: 'Redaction', monospace;
       font-size: 1.1em;
       font-weight: bold;
-      color: black;
+      color: white;
       margin-bottom: 20px;
       padding-bottom: 15px;
-      border-bottom: 2px solid black;
+      border-bottom: 1px solid white;
     }
     
     .thank-you-content p {
       font-size: 1em;
       margin-bottom: 15px;
-      color: black;
+      color: white;
+      font-family: 'RedactionRegular', serif;
     }
     
     .referral-link {
-      border: 2px solid black;
+      border: 1px solid white;
       padding: 15px;
       margin: 20px 0;
       text-align: center;
+      background-color: rgba(255, 255, 255, 0.1);
     }
     
     .referral-link a {
-      color: black;
+      color: white;
       text-decoration: none;
       font-weight: bold;
       font-size: 0.95em;
@@ -94,7 +92,7 @@
     }
     
     .referral-link a:hover {
-      color: black;
+      color: white;
       text-decoration: underline;
     }
     
@@ -106,16 +104,23 @@
     .back-link a {
       display: inline-block;
       padding: 12px 25px;
-      background: black;
-      color: white;
+      background: white;
+      color: black;
       text-decoration: none;
       font-weight: bold;
       font-size: 0.95em;
-      transition: all 0.3s ease;
+      border: 1px solid #000;
+      border-radius: 0;
+      box-shadow: 3px 3px 0px 0px #000;
+      position: relative;
+      transition: background-color 0.3s, color 0.3s, border-color 0.3s;
     }
     
     .back-link a:hover {
-      background: black;
+      background-color: #5252cc;
+      color: #fff;
+      border-color: #000;
+      box-shadow: 3px 3px 0px 0px #000;
       transform: translateY(-1px);
     }
     
@@ -257,14 +262,14 @@
     }
     
     /* Apply glitch trigger to back button */
-    .back-link a {
+    
+    /* Add overlay animation to let them know button */
+    .let-them-know-btn {
       position: relative;
       overflow: hidden;
     }
     
-
-    
-    .back-link a::before {
+    .let-them-know-btn::before {
       content: '';
       position: absolute;
       top: 0;
@@ -275,8 +280,17 @@
       transition: left 0.5s;
     }
     
-    .back-link a:hover::before {
+    .let-them-know-btn:hover::before {
       left: 100%;
+    }
+    
+    .let-them-know-btn {
+      transition: background-color 0.3s, color 0.3s;
+    }
+    
+    .let-them-know-btn:hover {
+      background-color: #4949c9 !important;
+      color: white !important;
     }
     
     /* Add subtle glitch to the entire container */
@@ -285,25 +299,32 @@
   </style>
 </head>
 <body>
+  <div style="text-align: center; margin: 0; padding-top: 40px; padding-bottom: -10px;">
+    <img src="../assets/images/garden-logo.webp" alt="Garden Logo" style="transform: scale(0.95); max-width: 100vw; width: 100%; height: auto;">
+  </div>
+  
   <div class="thank-you-container">
-    <header class="thank-you-header">
-      <h1>Thank You!</h1>
-    </header>
-    
     <main class="thank-you-content">
-      <h2>Know Other Artists Who Would Love This?</h2>
-      <p>We're limiting our first cohort to 20 artists. Help us find the right ones.</p>
+      <h1 style="font-family: 'RedactionBold', serif; font-size: 5.049em; font-weight: bold; color: white; margin: 0 0 -10px 0; text-transform: uppercase; letter-spacing: 1px; text-align: center; line-height: 0.9;">Thank You!</h1>
       
-      <div class="referral-link">
-        <p><strong>Send them this link:</strong></p>
-        <a href="https://garden-music.github.io/garden-invite/" target="_blank" rel="noopener">https://garden-music.github.io/garden-invite/</a>
-      </div>
+      <hr style="border: none; border-top: 1px solid white; margin: 20px 0;">
       
-      <p>Thank you for joining the waitlist! We'll be in touch soon with more details about the program.</p>
+      <h2 style="text-align: center;">We received your submission!<br><span style="font-weight: normal; font-size: 0.9em;">We'll be in touch soon with more details if it feels like a good fit!</span></h2>
+      
     </main>
     
+    <div style="text-align: center; margin: 30px 0 20px 0;">
+      <h2 style="color: #4949c9; font-family: 'RedactionBold', serif; font-size: 1.2em; margin: 0 0 15px 0;">Know other artists that would love this?</h2>
+      <p style="color: #333; font-size: 0.9em; margin: 0 0 20px 0;">We're limiting our first cohort to 20 artists.<br><em>Help us find the right ones.</em></p>
+        <a href="mailto:?subject=music%20growth%20collective%20thing&body=i%20just%20signed%20up%20for%20this%20you%20should%20check%20it%20out%20https://garden1176.com" class="let-them-know-btn" style="display: inline-block; padding: 12px 25px; background: white; color: black; text-decoration: none; font-weight: bold; font-size: 0.95em; border: 1px solid #000; border-radius: 0; box-shadow: 3px 3px 0px 0px #000; position: relative; margin-bottom: 40px;">Let them know</a>
+    </div>
+    
+    <div style="text-align: center; margin: 20px 0 40px 0;">
+      <img src="../assets/images/header-art-purple.gif" alt="Garden pixel art" style="max-width: 190px; height: auto;">
+    </div>
+    
     <div class="back-link">
-      <a href="../">← Back to Garden Invite</a>
+      <a href="../" style="display: inline-block; padding: 0; background: none; color: #4949c9; text-decoration: underline; font-weight: normal; font-size: 0.9em; border: none; border-radius: 0; box-shadow: none; position: relative; transition: none;">← Back to Garden</a>
     </div>
   </div>
 </body>
