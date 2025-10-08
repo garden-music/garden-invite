@@ -24,6 +24,16 @@
   <link rel="icon" type="image/x-icon" href="assets/images/garden can.ico">
   
   <link rel="preload" as="image" href="assets/images/noise-background-1.webp">
+  <link rel="preload" as="font" href="assets/fonts/Redaction_35-Regular.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="assets/fonts/Redaction_35-Bold.woff2" type="font/woff2" crossorigin>
+  <script>
+    // Preload background image to prevent white flash
+    const bgImg = new Image();
+    bgImg.onload = function() {
+      document.body.classList.add('background-loaded');
+    };
+    bgImg.src = 'assets/images/noise-background-1.webp';
+  </script>
   <link rel="stylesheet" href="assets/css/styles.css">
   <style>
     @keyframes gnomeFlash {
@@ -109,16 +119,16 @@
     }
   </style>
 </head>
-<body class="test-cursor" style="background-color: #f5f5f5;">
+<body class="test-cursor">
   <!-- Bouncing DVD screensaver style GIF -->
   <div class="bouncing-gif">
     <img src="assets/images/header-art.gif" alt="Bouncing Garden Art" class="dvd-bounce">
   </div>
   
   <div class="hero">
-    <img src="assets/images/garden-logo.webp" alt="Garden Logo" class="hero-logo" style="transform: scale(1.25); margin-top: 60px;">
+    <a href="/"><img src="assets/images/garden-logo.webp" alt="Garden Logo" class="hero-logo" style="transform: scale(1.25); margin-top: 60px;" loading="eager" decoding="async"></a>
     <h2 class="hero-subheader" style="color: white; text-align: center; font-family: 'Times New Roman', Times, serif; line-height: 1.1; font-size: calc(1.15em + 5px); margin: 20px 0 0px 0; background: none;">A DIY Music<br>Growth Collective</h2>
-    <img src="assets/images/header-art-purple.gif" alt="Garden pixel art" class="hero-gif">
+    <img src="assets/images/header-art-purple.gif" alt="Garden pixel art" class="hero-gif" loading="eager" decoding="async">
     <a href="#waitlist-section" class="waitlist-btn">Apply to Join</a>
   </div>
   <div class="intro-block">
@@ -127,20 +137,20 @@
       Garden is a co-op we've built to help collectively grow streaming and listenership at the same time as other artists in your niche. We run social media ads everyday to target real listeners. Instead of creating individual campaigns, we pool our money to create a multiplier effect. The more people that join, the stronger the results are for everyone.</p>
     </div>
     <div style="display: flex; justify-content: center; gap: 10px; margin: 5px auto;">
-      <img src="assets/images/purp-gnome.webp" alt="Purple gnome" class="qa-gif gnome-flash" style="width: 12%; height: auto;">
-      <img src="assets/images/purp-gnome.webp" alt="Purple gnome" class="qa-gif gnome-flash" style="width: 12%; height: auto;">
-      <img src="assets/images/purp-gnome.webp" alt="Purple gnome" class="qa-gif gnome-flash" style="width: 12%; height: auto;">
-      <img src="assets/images/purp-gnome.webp" alt="Purple gnome" class="qa-gif gnome-flash" style="width: 12%; height: auto;">
-      <img src="assets/images/purp-gnome.webp" alt="Purple gnome" class="qa-gif gnome-flash" style="width: 12%; height: auto;">
+      <img src="assets/images/purp-gnome.webp" alt="Purple gnome" class="qa-gif gnome-flash" style="width: 12%; height: auto;" loading="lazy" decoding="async">
+      <img src="assets/images/purp-gnome.webp" alt="Purple gnome" class="qa-gif gnome-flash" style="width: 12%; height: auto;" loading="lazy" decoding="async">
+      <img src="assets/images/purp-gnome.webp" alt="Purple gnome" class="qa-gif gnome-flash" style="width: 12%; height: auto;" loading="lazy" decoding="async">
+      <img src="assets/images/purp-gnome.webp" alt="Purple gnome" class="qa-gif gnome-flash" style="width: 12%; height: auto;" loading="lazy" decoding="async">
+      <img src="assets/images/purp-gnome.webp" alt="Purple gnome" class="qa-gif gnome-flash" style="width: 12%; height: auto;" loading="lazy" decoding="async">
     </div>
     <div class="qa-section">
       <p><b>Who is this for?</b><span class="big-break"></span>
       You probably, if you have this link lol.<span class="big-break"></span>
       But mainly this is for folks that already have great music, but not much knowledge or energy for direct response marketing. If you want to grow listenership & associate yourself with other great projects, this is an easy and great way to do so.</p>
     </div>
-    <img src="assets/images/garden can.webp" alt="Garden can" class="qa-gif garden-can-rotate" style="height: 80px; width: auto;">
+    <img src="assets/images/garden can.webp" alt="Garden can" class="qa-gif garden-can-rotate" style="height: 80px; width: auto;" loading="lazy" decoding="async">
     <h3 class="hot-takes-header" style="color: white; font-style: italic;">PEOPLE LOVE OUR PLAYLISTS (P.L.O.P.)</h3>
-    <img src="assets/images/IG Comments - white copy.webp" alt="IG Comments" style="display:block; margin: 24px auto; max-width: 100%; height: auto; opacity: 0.87; border: 1px solid black;">
+    <img src="assets/images/IG Comments - white copy.webp" alt="IG Comments" style="display:block; margin: 24px auto; max-width: 100%; height: auto; opacity: 0.87; border: 1px solid black;" loading="lazy" decoding="async">
     <div style="text-align: center; margin: 49px 0;">
       <a href="#waitlist-section" class="waitlist-btn">Apply to Join</a>
     </div>
@@ -149,7 +159,7 @@
       Ads pretty much!<span class="big-break"></span>
       We've built up a robust playlist audience that is growing every day. With over 10+ years of marketing experience, we constantly build and test new ads (mostly on meta), which direct people to follow and stream different playlists we've curated across Spotify / Apple Music / Tidal / Youtube Music. However, instead of creating campaigns for each individual artist, we pool the daily adspend budget, creating a multiplier effect for everyone involved.</p>
     </div>
-    <img src="assets/images/snail.webp" alt="Snail" class="qa-gif gnome-flash shovel" style="height: 47px; width: auto;">
+    <img src="assets/images/snail.webp" alt="Snail" class="qa-gif gnome-flash shovel" style="height: 47px; width: auto;" loading="lazy" decoding="async">
     <div class="qa-section">
       <p><b>How much does it cost?</b><span class="big-break"></span>
       $5/day per artist. Billed monthly. Stay as long as you'd like, we just ask that you start with at least 30 days before jumping ship.</p>
@@ -158,11 +168,11 @@
       <a href="#waitlist-section" class="waitlist-btn" style="font-size: 14px;">Apply to Join</a>
     </div>
     <div style="display: flex; justify-content: center; gap: 10px; margin: 5px auto;">
-      <img src="assets/images/flower.gif" alt="Flower" class="qa-gif flower-staggered" style="height: 80px; width: auto;">
-      <img src="assets/images/flower.gif" alt="Flower" class="qa-gif flower-staggered" style="height: 80px; width: auto;">
-      <img src="assets/images/flower.gif" alt="Flower" class="qa-gif flower-staggered" style="height: 80px; width: auto;">
-      <img src="assets/images/flower.gif" alt="Flower" class="qa-gif flower-staggered" style="height: 80px; width: auto;">
-      <img src="assets/images/flower.gif" alt="Flower" class="qa-gif flower-staggered" style="height: 80px; width: auto;">
+      <img src="assets/images/flower.gif" alt="Flower" class="qa-gif flower-staggered" style="height: 80px; width: auto;" loading="lazy" decoding="async">
+      <img src="assets/images/flower.gif" alt="Flower" class="qa-gif flower-staggered" style="height: 80px; width: auto;" loading="lazy" decoding="async">
+      <img src="assets/images/flower.gif" alt="Flower" class="qa-gif flower-staggered" style="height: 80px; width: auto;" loading="lazy" decoding="async">
+      <img src="assets/images/flower.gif" alt="Flower" class="qa-gif flower-staggered" style="height: 80px; width: auto;" loading="lazy" decoding="async">
+      <img src="assets/images/flower.gif" alt="Flower" class="qa-gif flower-staggered" style="height: 80px; width: auto;" loading="lazy" decoding="async">
     </div>
     <div class="qa-section">
       <p><b>Are results guaranteed?</b><span class="big-break"></span>
@@ -245,22 +255,14 @@
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          // Add staggered delays for multiple elements
-          if (entry.target.classList.contains('staggered-animate')) {
-            const delay = Array.from(entry.target.parentNode.children).indexOf(entry.target) * 200;
-            setTimeout(() => {
-              entry.target.classList.add('animated');
-            }, delay);
-          } else {
-            entry.target.classList.add('animated');
-          }
+          entry.target.classList.add('animated');
         }
       });
     }, observerOptions);
 
     // Observe all animated elements
     document.addEventListener('DOMContentLoaded', () => {
-      const animatedElements = document.querySelectorAll('.animate-on-scroll, .staggered-animate, .choppy-fade');
+      const animatedElements = document.querySelectorAll('.animate-on-scroll');
       animatedElements.forEach(el => observer.observe(el));
     });
 
